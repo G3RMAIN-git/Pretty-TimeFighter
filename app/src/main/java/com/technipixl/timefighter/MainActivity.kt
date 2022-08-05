@@ -56,8 +56,15 @@ class MainActivity : AppCompatActivity() {
             outState.putInt(TIME_LEFT_KEY,timeLeft)
             countDownTimer.cancel()
 
-            Log.d(TAG, )
+            Log.d(TAG,"onSaveInstanceState: Saving Score: $score a time left: $timeLeft" )
         }
+
+
+    }
+    override fun onDestroy(){
+        super.onDestroy()
+
+        Log.d(TAG, "onDestroy called")
     }
 
     private fun incrementScore(){
