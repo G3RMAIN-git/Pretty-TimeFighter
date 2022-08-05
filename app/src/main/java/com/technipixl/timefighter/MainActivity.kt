@@ -49,17 +49,19 @@ class MainActivity : AppCompatActivity() {
 
         resetGame()
 
-        override fun onSaveInstanceState(outState: Bundle) {
-            super.onSaveInstanceState(outState)
-
-            outState.putInt(SCORE_KEY,score)
-            outState.putInt(TIME_LEFT_KEY,timeLeft)
-            countDownTimer.cancel()
-
-            Log.d(TAG,"onSaveInstanceState: Saving Score: $score a time left: $timeLeft" )
-        }
 
 
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putInt(SCORE_KEY,score)
+        outState.putInt(TIME_LEFT_KEY,timeLeft)
+        countDownTimer.cancel()
+
+        Log.d(TAG,"onSaveInstanceState: Saving Score: $score a time left: $timeLeft" )
     }
     override fun onDestroy(){
         super.onDestroy()
