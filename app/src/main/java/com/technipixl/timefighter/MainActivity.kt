@@ -3,6 +3,7 @@ package com.technipixl.timefighter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -12,6 +13,8 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
 
     private var score = 0
+
+    private val TAG = MainActivity::class.java.simpleName
 
     private lateinit var gameScoreTextView : TextView
     private lateinit var timeLeftTextView: TextView
@@ -26,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Log.d(TAG,"onCreate called. Score is: $score")
 
         gameScoreTextView = findViewById(R.id.gameScoreTextView)
         timeLeftTextView = findViewById(R.id.timeLeftTextView)
@@ -43,6 +48,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         resetGame()
+
+        override fun onSaveInstanceState(outState: Bundle) {
+            super.onSaveInstanceState(outState)
+
+            outState.putInt(SCORE_KEY,score)
+            outState.putInt(TIME_LEFT_KEY,timeLeft)
+            countDownTimer.cancel()
+
+            Log.d(TAG, )
+        }
     }
 
     private fun incrementScore(){
