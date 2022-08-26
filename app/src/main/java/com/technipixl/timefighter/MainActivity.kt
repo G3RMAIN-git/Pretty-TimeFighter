@@ -1,9 +1,12 @@
 package com.technipixl.timefighter
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -54,6 +57,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    @SuppressLint("StringFormatInvalid")
     private fun showIndo(){
         val dialogTitle = getString(R.string.about_title,BuildConfig.VERSION_NAME)
         val dialogMessage = getString(R.string.about_message)
@@ -77,6 +81,20 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
 
         Log.d(TAG, "onDestroy called")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.about_item){
+            showIndo()
+        }
+        return true
     }
 
     private fun incrementScore(){

@@ -4,7 +4,7 @@
     <string name="your_score">Your Score: %1$d</string>
     <string name="Time_left">Time left : %1$d</string>
     <string name="game_over_message">Time \'s up! Your score was : %1$d</string>
-    <string name="about_message">about me</string>
-    <string name="about_title">G3RMAIN</string>
+    <string name="about_message">Created by G3RMAIN</string>
+    <string name="about_title">Timefighter %1$s</string>
     <string name="VERSION_NAME">V1.0</string>
 </resources>
